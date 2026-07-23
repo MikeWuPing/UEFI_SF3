@@ -1,0 +1,60 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SFC3
+  FILE_GUID                      = A1B2C3D4-E5F6-7890-ABCD-EF1234567890
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  main.c
+  version.h
+  nes_types.h
+  nes_state.h
+  nes_state.c
+  resource.h
+  resource.c
+  ppu.h
+  ppu.c
+  gop_render.h
+  gop_render.c
+  input.h
+  input.c
+  timer.h
+  timer.c
+  game_state.h
+  game_state.c
+  background.h
+  background.c
+  background_data.c
+  fighter.h
+  fighter.c
+  fighter_data.c
+  fighter_sprite_data.h
+  fighter_sprite_data.c
+  fighter_sprite.c
+  ai.h
+  ai.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiLib
+  UefiApplicationEntryPoint
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  DebugLib
+
+[Protocols]
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiGraphicsOutputProtocolGuid
+  gEfiLoadedImageProtocolGuid
+
+[Guids]
+  gEfiFileInfoGuid
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /wd4819 /wd4100 /wd4204 /wd4245 /Oi- /source-charset:utf-8
+  MSFT:*_*_*_LINK_FLAGS = /SUBSYSTEM:EFI_APPLICATION
